@@ -1,0 +1,54 @@
+[user]
+name = "Korneliusz Łapacz"
+email = "lapacz.kornel@gmail.com"
+
+[ui]
+pager = "delta"
+default-command = ["log"]
+diff-editor = ":builtin"
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
+
+[git]
+private-commits = "private() | wip()"
+write-change-id-header = true
+
+[aliases]
+d = ["diff"]
+dp = ["diff", "-r", "@-"]
+dr = ["diff", "-r"]
+si = ["squash", "-i"]
+r = ["rebase"]
+e = ["edit"]
+l = ["log"]
+spr = ["util", "exec", "--", "jj-spr"]
+
+
+[revsets]
+log = "mine_mutable() ~ private()"
+
+[revset-aliases]
+"at_context()" = "ancestors(reachable(@, trunk()..), 2) | trunk()"
+"mine_mutable()" = "ancestors(mutable(), 2) | trunk()"
+"private()" = "description(glob:'private:*') | description(glob:'PRIVATE:*')"
+"wip()" = "description(glob:'wip:*') | description(glob:'WIP:*')"
+"immutable_heads()" = 'builtin_immutable_heads()'
+ALL = 'present(@) | ancestors(immutable_heads().., 2) | present(trunk())'
+prev = '@-'
+next = '@+'
+
+[colors]
+"diff removed token" = { underline = false }
+"diff added token" = { underline = false }
+
+[merge-tools.mergiraf]
+program = "mergiraf"
+merge-args = ["merge", "$base", "$left", "$right", "-o", "$output", "--fast"]
+merge-conflict-exit-codes = [1]
+conflict-marker-style = "git"
+
+[templates]
+git_push_bookmark = 'auto_bookmark_name'
+
+[template-aliases]
+'auto_bookmark_name' = '"klapacz/push-" ++ change_id.short()'
+
