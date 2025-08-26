@@ -1,0 +1,23 @@
+[ui]
+#in seconds
+auto_refresh_interval = 10
+
+[leader.B]
+context = [ "$change_id" ]
+help = "Generate bookmark name"
+send = [ "$", "jj bookmark set -r $change_id $(jj log -r $change_id --no-graph -T 'auto_bookmark_name')", "enter" ]
+
+[leader.E]
+context = [ "$file", "$change_id" ]
+help = "Edit file in change"
+send = [ "$", "jj edit $change_id && zed $file", "enter" ]
+
+[leader.R]
+help = "Rebase dev branch on main"
+send = [ ":", "rebase -b dev -d main", "enter" ]
+
+[leader.C]
+context = [ "$change_id" ]
+help = "Toggle [skip ci]"
+send = [ "$", "jj-desc-toggle-ci $change_id", "enter" ]
+
