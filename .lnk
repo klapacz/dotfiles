@@ -1,2 +1,3 @@
 .config/jj/config.toml
+.local/bin/jj-desc-toggle-ci
 Library/Application Support/jjui/config.toml

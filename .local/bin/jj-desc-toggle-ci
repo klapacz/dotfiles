@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Jujutsu VCS helper to toggle '[skip ci]' in commit messages
+# Usage: jj desc-toggle-ci {revision}
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <revision>"
+    exit 1
+fi
+
+REVISION=$1
+
+# Get current commit message
+CURRENT_DESC=$(jj log -r "$REVISION" --no-graph --template 'self.description()')
+
+if [[ $CURRENT_DESC == *"[skip ci]"* ]]; then
+    # Remove '[skip ci]' from the message
+    NEW_DESC=$(echo "$CURRENT_DESC" | sed 's/\[skip ci\]//g' | sed 's/[[:space:]]*$//')
+    echo "Removing '[skip ci]' from commit message"
+else
+    # Add '[skip ci]' at the end
+    NEW_DESC="$CURRENT_DESC [skip ci]"
+    echo "Adding '[skip ci]' to commit message"
+fi
+
+# Update the commit message
+jj describe "$REVISION" --message "$NEW_DESC"
+
+echo "Updated commit message for revision $REVISION"
