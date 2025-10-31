@@ -13,11 +13,18 @@ help = "Edit file in change"
 send = [ "$", "jj edit $change_id && zed $file", "enter" ]
 
 [leader.R]
-help = "Rebase dev branch on main"
-send = [ ":", "rebase -b dev -d main", "enter" ]
+help = "Rebase on trunk"
+send = [ ":", "rebase-on-trunk", "enter" ]
+
+[leader.S]
+help = "Submit with jst"
+send = [ "$", "jst submit $(jj log -r $change_id -T 'self.bookmarks()' --no-graph | sed \"s/\\*$//\")", "enter" ]
+
+[leader.M]
+help = "Submit with jst"
+send = [ "$", "gh pr merge $(jj log -r $change_id -T 'self.bookmarks()' --no-graph | sed \"s/\\*$//\")", "enter" ]
 
 [leader.C]
 context = [ "$change_id" ]
 help = "Toggle [skip ci]"
 send = [ "$", "jj-desc-toggle-ci $change_id", "enter" ]
-
