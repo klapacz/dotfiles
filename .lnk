@@ -5,4 +5,5 @@
 .config/zed/tasks.json
 .local/bin/jj-desc-toggle-ci
 .local/bin/zed-tsc
+.tmux.conf
 Library/Application Support/jjui/config.toml
