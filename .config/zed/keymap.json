@@ -1,0 +1,48 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+    {
+        "context": "Editor && VimControl && !VimWaiting && !menu",
+        "bindings": {
+            "shift-h": "pane::ActivatePreviousItem",
+            "shift-l": "pane::ActivateNextItem",
+            "shift-k": "editor::Hover",
+            "space l f": "editor::Format",
+            "space /": "workspace::NewSearch",
+            "n": "search::SelectNextMatch",
+            "shift-n": "search::SelectPreviousMatch",
+            "space t": "workspace::NewCenterTerminal",
+            "g b": "editor::ToggleComments",
+            "space w": "workspace::Save",
+            "space c": "pane::CloseActiveItem",
+            "g o": "editor::OpenExcerpts",
+            "g t": "task::Spawn",
+            "space d": "editor::DeleteLine", // Delete line without yanking
+            "space y": "workspace::CopyRelativePath",
+            "space j j": ["task::Spawn", { "task_name": "jjui" }],
+            "space o p": ["task::Spawn", { "task_name": "opencode" }]
+        }
+    },
+
+    {
+        "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
+        "bindings": {
+            "shift-j": "editor::MoveLineDown",
+            "shift-k": "editor::MoveLineUp"
+        }
+    },
+
+    // * not case sensitive
+    {
+        "context": "VimControl && !menu",
+        "bindings": {
+            "*": ["vim::MoveToNext", { "case_sensitive": false }],
+            "#": ["vim::MoveToPrevious", { "case_sensitive": false }]
+        }
+    }
+]
