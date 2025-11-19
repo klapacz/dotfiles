@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pnpm tsc --noEmit | pnpx @aivenio/tsc-output-parser | jq -r '.[].value.path.value' | xargs zed
