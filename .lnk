@@ -1,5 +1,6 @@
 .config/jj/config.toml
 .config/karabiner/karabiner.json
+.config/zed/settings.json
 .local/bin/jj-desc-toggle-ci
 .local/bin/zed-tsc
 Library/Application Support/jjui/config.toml
