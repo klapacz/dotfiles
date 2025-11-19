@@ -1,0 +1,30 @@
+[
+    {
+        "label": "jjui",
+        "command": "jjui",
+        "use_new_terminal": false,
+        "reveal_target": "center",
+        "allow_concurrent_runs": false,
+        "env": {
+            "EDITOR": "zed -w",
+            "VISUAL": "zed -w"
+        },
+        "reveal": "always",
+        "hide": "on_success",
+        "shell": "system"
+    },
+    {
+        "label": "opencode",
+        "command": "opencode",
+        "use_new_terminal": false,
+        "reveal_target": "center",
+        "allow_concurrent_runs": false,
+        "env": {
+            "EDITOR": "zed -w",
+            "VISUAL": "zed -w"
+        },
+        "reveal": "always",
+        "hide": "on_success",
+        "shell": "system"
+    }
+]

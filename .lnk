@@ -2,6 +2,7 @@
 .config/karabiner/karabiner.json
 .config/zed/keymap.json
 .config/zed/settings.json
+.config/zed/tasks.json
 .local/bin/jj-desc-toggle-ci
 .local/bin/zed-tsc
 Library/Application Support/jjui/config.toml
