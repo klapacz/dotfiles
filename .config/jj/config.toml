@@ -3,7 +3,6 @@ name = "Korneliusz Łapacz"
 email = "lapacz.kornel@gmail.com"
 
 [ui]
-pager = "delta"
 default-command = ["log"]
 diff-editor = ":builtin"
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
